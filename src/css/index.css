@@ -90,11 +90,23 @@ header{
 
 .entry {
   border-radius: 20px;
+  border: 2px solid black;
   padding: 5px;
   color: black;
   background-color: #fee769;
-  box-shadow: 0 0px 10px #fee769;
+  box-shadow: 0 0 10px #fee769;
   margin: 10px 5px;
+}
+
+.entry::placeholder{
+  color: black; /* Substitua 'gray' pela cor desejada */
+  font-style: italic; /* Opcional: para dar um estilo diferenciado */
+  opacity: 0.8; /* Opcional: para ajustar a opacidade */
+  text-align: center;
+}
+
+.entry:focus {
+  outline: none;
 }
 
 .content p {
