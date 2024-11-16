@@ -128,7 +128,7 @@ body::-webkit-scrollbar {
   justify-content: center;
   flex-direction: column;
   min-height: 76.7dvh; 
-  margin: 0 15%; /* Reduz a margem lateral */
+  margin: 20px 15%; /* Reduz a margem lateral */
   box-sizing: border-box; /* Inclui o padding no cálculo da largura total */
 }
 
@@ -305,7 +305,7 @@ footer {
 
 @media screen and (max-width: 1025px) {
   .container {
-   margin: 0 5%; 
+   margin: 20px 5%; 
   }
 }
 
@@ -319,7 +319,7 @@ footer {
     flex-wrap: wrap;
   }
   .container{
-    margin: 0 10%;
+    margin: 20px 10%;
   }
   .container_2{
     margin: 0 10%;
@@ -352,7 +352,7 @@ footer {
 
 @media screen and (max-width: 376px){
   .container{
-    margin: 0 5%;
+    margin: 20px 5%;
   }
   .container_2{
     margin: 0 2%;
