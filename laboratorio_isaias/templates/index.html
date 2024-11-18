@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz</title>
+    <link rel="stylesheet" href="/static/css/home.css">
+</head>
+<body>
+
+    
+    <div class="opcaoA">
+        <button onclick="">Opção A</button>
+        
+    </div>
+    <div class="container-search">
+        <form action="/login" method="post">
+            <label for="labell"></label>
+            <input maxlength="1" onfocus="verificador()" onkeyup="teclado(registro)" onclick="verificador()" type="text" required placeholder="Palavra"class="letra-input">
+            <button type="submit">a</button>
+        </form>
+    </div>
+        <p class="letras"></p>
+        <p class="teste"></p>
+<!--Obrigatório ter no nosso código -->
+        <p class="word"></p>
+        <p class="hints"></p>
+        <p class="hint_pay"></p>
+<!--O código depende dos 3 acima-->
+    <script src="../Js/back_end.js"></script>
+</body>
+</html>     

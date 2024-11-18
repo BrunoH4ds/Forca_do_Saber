@@ -1,0 +1,18 @@
+div.opcaoA{
+
+    background-color: blueviolet;
+}
+
+div.container-search {
+    display: flex;
+    
+    background-color: blue;
+}
+
+input.letra-input {
+    color: black; 
+    font-size: 16px;
+    padding: 8px;
+    content: 22px;
+    
+}
