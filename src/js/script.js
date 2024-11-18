@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // Função para verificar vitória
   function verificarVitoria() {
     if (!letrasDescobertas.includes("_")) {
-      pontos += 50; // Pontos por completar a palavra
+      pontos += 6; // Pontos por completar a palavra
       if (jogoAtual < jogosPorNivel) {
         jogoAtual++;
         avancarPalavra();
@@ -42,15 +42,18 @@ document.addEventListener("DOMContentLoaded", () => {
   // Avançar para próxima palavra no mesmo nível
   function avancarPalavra() {
     indiceAtual = (indiceAtual + 1) % palavrasDoNivel.length;
-    atualizarConfiguracoes();
-    atualizarInterface();
+    atualizarConfiguracoes()
+    atualizarInterface()
+    document.querySelector(".container .content p").textContent = ``;
   }
 
   // Mudar de nível
   function mudarNivel() {
     if (nivelAtual === "facil") {
+      
       nivelAtual = "medio";
     } else if (nivelAtual === "medio") {
+      
       nivelAtual = "dificil";
     } else {
       // Finalizar o jogo se todos os níveis forem completados
@@ -79,7 +82,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     if (acerto) {
-      pontos += 10;
+      pontos += 3;
     } else {
       tentativas--;
     }
@@ -96,6 +99,7 @@ document.addEventListener("DOMContentLoaded", () => {
   document.querySelector(".tip").addEventListener("click", () => {
     if (pontos >= 10) {
       pontos -= 10;
+      
       document.querySelector(".container .content p").textContent = `Dica: ${dicaCompravel}`;
       atualizarInterface();
     } else {
