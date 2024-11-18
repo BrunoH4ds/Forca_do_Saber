@@ -11,40 +11,43 @@
   <header class="header_game">
     <div class="header_alight">
       <div class="level">
-        <p>1/36</p>
+        <p id="nivelAtual">Nível: Fácil</p>
+        <p id="progressoFase">Jogo: 1/6</p>
       </div>
       <div class="matter">
-        <h1> Portugues</h1>
+        <h1>Português</h1>
       </div>
-          <div class="points">
-            <img src="src/img/golden-dollar-coin-clipart-xl.png">
-            <p> 000</p>
-          </div>
-        </div>
-      </header>
-    <div class="container" >
-      <main class="pag_1">
+      <div class="points">
+        <img src="src/img/golden-dollar-coin-clipart-xl.png" alt="Pontos">
+        <p id="pontuacao">000</p>
+      </div>
+    </div>
+  </header>
+  <div class="container">
+    <main class="pag_1">
       <div class="img">
-        <img src="src/img/forca.png">
+        <img src="src/img/forca.png" alt="Forca">
       </div>
       <div class="content">
         <h2 id="Dica_init">Dica inicial</h2>
         <h1>_ _ _ _ _ _</h1>
         <input type="text" class="entry" placeholder="Qual será a palavra misteriosa?" autocomplete="off" autofocus="on" maxlength="1">
-        <p>Dica:</p>
+        <p class="message"></p>
         <div class="buttons">
-          <button class="tip"><i class="bi bi-lightbulb"></i>Dica 10P</button>
-          <button class="skip"><i class="bi bi-skip-end"></i>Pular 1/3</button>
-          <a href="#" target="_blank" rel="noopener noreferrer"><button class="exit"><i class="bi bi-x-circle"></i>Sair</button></a>
+          <button class="tip"><i class="bi bi-lightbulb"></i> Dica 10P</button>
+          <button class="skip"><i class="bi bi-skip-end"></i> Pular</button>
+          <a href="loser.html"><button class="exit"><i class="bi bi-x-circle"></i> Sair</button></a>
         </div>
+      </div>
     </main>
   </div>
   <footer>
-      <div class="credits">
-        <p>Guided By: Higor Bernardes, Rodrigo.</p>
-        <p>Created By: Matheus Willian,<a href="https://github.com/BrunoH4ds" target="_blank">Bruno Henrique</a>,Isaias Ribeiro,Beatriz,Nicolly Oliveira,Izabelly Anacleto.</p>
-      </div>
+    <div class="credits">
+      <p>Guided By: Higor Bernardes, Rodrigo.</p>
+      <p>Created By: Matheus Willian, <a href="https://github.com/BrunoH4ds" target="_blank">Bruno Henrique</a>, Isaias Ribeiro, Beatriz, Nicolly Oliveira, Izabelly Anacleto.</p>
+    </div>
   </footer>
+  <script src="src/js/dados.js"></script>
+  <script src="src/js/script.js"></script>
 </body>
-<script src="src/js/dados.js"></script>
 </html>

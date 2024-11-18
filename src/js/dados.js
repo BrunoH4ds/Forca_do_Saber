@@ -1,14 +1,15 @@
+// Banco de palavras com níveis de dificuldade
 const palavras = {
   facil: [
-    { palavra: 'sujeito', dicaInicial: 'Parte da oração.', dicaCompravel: 'Pode ser oculto ou explícito.' },
-    { palavra: 'verbo', dicaInicial: 'Indica ação.', dicaCompravel: 'Pode ser transitivo ou intransitivo.' }
+    { palavra: "bola", dicaInicial: "Um objeto redondo.", dicaCompravel: "Usado em esportes como futebol e basquete." },
+    { palavra: "casa", dicaInicial: "Um lugar para morar.", dicaCompravel: "Pode ser térrea ou com andares." },
   ],
   medio: [
-    { palavra: 'predicado', dicaInicial: 'Complementa o sujeito.', dicaCompravel: 'Parte principal da oração.' },
-    { palavra: 'adjetivo', dicaInicial: 'Acompanha um substantivo.', dicaCompravel: 'Indica característica ou qualidade.' }
+    { palavra: "livro", dicaInicial: "Fonte de conhecimento.", dicaCompravel: "Pode ser digital ou físico." },
+    { palavra: "ponte", dicaInicial: "Conecta dois pontos.", dicaCompravel: "Pode ser feita de concreto ou madeira." },
   ],
   dificil: [
-    { palavra: 'paralelismo', dicaInicial: 'Figura de linguagem.', dicaCompravel: 'Repetição de estruturas similares.' },
-    { palavra: 'pleonasmo', dicaInicial: 'Recurso estilístico.', dicaCompravel: 'Redundância para reforço.' }
+    { palavra: "horizonte", dicaInicial: "Algo distante no céu.", dicaCompravel: "Onde o sol parece se pôr." },
+    { palavra: "metafora", dicaInicial: "Figura de linguagem.", dicaCompravel: "Comparação implícita entre conceitos." },
   ]
 };
