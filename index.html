@@ -11,8 +11,7 @@
   <header class="header_game">
     <div class="header_alight">
       <div class="level">
-        <p id="nivelAtual">Nível: Fácil</p>
-        <p id="progressoFase">Jogo: 1/6</p>
+        <p id="progressoFase">N/A</p>
       </div>
       <div class="matter">
         <h1>Português</h1>
@@ -26,12 +25,12 @@
   <div class="container">
     <main class="pag_1">
       <div class="img">
-        <img src="src/img/forca.png" alt="Forca">
+        <img class="forca-img" src="src/img/forca.png" alt="Forca">
       </div>
       <div class="content">
-        <h2 id="Dica_init">Dica inicial</h2>
+        <h2 id="Dica_init">Dica inicial:</h2>
         <h1>_ _ _ _ _ _</h1>
-        <input type="text" class="entry" placeholder="Qual será a palavra misteriosa?" autocomplete="off" autofocus="on" maxlength="1">
+        <input type="text" class="entry" autocomplete="off" autofocus="on" maxlength="1">
         <p class="message"></p>
         <div class="buttons">
           <button class="tip"><i class="bi bi-lightbulb"></i> Dica 10P</button>
@@ -40,11 +39,14 @@
         </div>
       </div>
     </main>
+    <div class="latters_used">
+      <p id="latters_incorrect">Letras Erradas:</p>
+    </div>
   </div>
   <footer>
     <div class="credits">
       <p>Guided By: Higor Bernardes, Rodrigo.</p>
-      <p>Created By: Matheus Willian, <a href="https://github.com/BrunoH4ds" target="_blank">Bruno Henrique</a>, Isaias Ribeiro, Beatriz, Nicolly Oliveira, Izabelly Anacleto.</p>
+      <p>Created By: Matheus William, <a href="https://github.com/BrunoH4ds" target="_blank">Bruno Henrique</a>, Isaias Ribeiro, Beatriz Gomes, Nicolly Oliveira, Izabelly Anacleto.</p>
     </div>
   </footer>
   <script src="src/js/dados.js"></script>

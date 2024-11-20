@@ -127,7 +127,7 @@ body::-webkit-scrollbar {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  min-height: 70dvh; 
+  min-height: 74dvh; 
   margin: 20px 15%; /* Reduz a margem lateral */
   box-sizing: border-box; /* Inclui o padding no cálculo da largura total */
 }
@@ -137,7 +137,7 @@ body::-webkit-scrollbar {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  min-height: 73dvh; 
+  min-height: 77dvh; 
   margin: 0 15%; /* Reduz a margem lateral */
   box-sizing: border-box; /* Inclui o padding no cálculo da largura total */
 }
@@ -174,22 +174,23 @@ body::-webkit-scrollbar {
 }
 
 .entry {
-  border-radius: 20px;
-  border: 2px solid black;
-  padding: 5px;
-  color: black;
-  background-color: #fee769;
-  box-shadow: 0 0 10px #fee769;
-  margin: 10px 5px;
-  background: none;
-  border: none;
-  color: transparent;
-  box-shadow: none;
-  cursor: pointer;
+  position: absolute; /* Posiciona em relação ao pai (.content) */
+  top: 0;
+  left: 0;
+  width: 100%; /* Ocupa toda a largura do elemento pai */
+  height: 100dvh; /* Ocupa toda a altura do elemento pai */
+  background-color: transparent; /* Torna o fundo transparente */
+  border: none; /* Remove bordas padrão */
+  color: transparent; /* Torna o texto invisível */
+  z-index: 1; /* Mantém o campo acima do h1 */
+  text-align: center; /* Alinha o texto no centro */
+  cursor: pointer; /* Mantém o cursor interativo */
 }
+
 
 .entry:focus {
   outline: none;
+  pointer-events: auto;
 }
 
 
@@ -224,8 +225,8 @@ body::-webkit-scrollbar {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
+  z-index: 2;
 }
-
 
 
 .buttons button {
@@ -277,24 +278,37 @@ body::-webkit-scrollbar {
 
 .restart{
   background-color: #5aa1f3;
+  transition: transform 0.3s ease;
 }
 
 .restart:hover{
   background-color: #84b8f5;
+  transform: scale(1.2);
 }
 
 .continue {
   background-color: #41c867;
+  transition: transform 0.3s ease;
 }
 
 .continue:hover{
   background-color: #44d67c;
+  transform: scale(1.2);
 }
 
 .buttons a {
   color: white;
   text-decoration: none;
   min-height: max-content;
+}
+
+.latters_used{
+  margin-top: 20px;
+  width: 100%;
+  font-size: 1.15rem;
+  font-weight: bold;
+  text-wrap: wrap;
+  word-wrap: break-word;
 }
 
 footer {
@@ -308,6 +322,7 @@ footer {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  z-index: 1;
 }
 
 .credits a {
@@ -351,6 +366,9 @@ footer {
   }
   .content{
     margin-top: 20px;
+  }
+  .latters_usec{
+    height: none;
   }
   .buttons {
     flex-wrap: wrap; /* Permite que os botões quebrem linha em telas pequenas */
