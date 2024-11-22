@@ -46,7 +46,7 @@ Para rodar o jogo, você precisará de:
    ```
 2. **Abra o arquivo `index.html`** no navegador para iniciar o jogo.
 3. **Acesse a versão online do jogo**:  
-   [Forca do Saber](https://brunoh4ds.github.io/web_Forca_educacional/)
+   [Forca do Saber](https://github.com/BrunoH4ds/web_Forca_educacional)
 
 ## Créditos
 
