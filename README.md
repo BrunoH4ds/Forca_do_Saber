@@ -42,7 +42,7 @@ Para rodar o jogo, você precisará de:
 
 1. **Clone o repositório**:
       ```bash
-   git clone https://github.com/seu-repositorio/forca-do-saber.git
+   git clone https://github.com/BrunoH4ds/web_Forca_educacional
    ```
 2. **Abra o arquivo `index.html`** no navegador para iniciar o jogo.
 3. **Acesse a versão online do jogo**:  
