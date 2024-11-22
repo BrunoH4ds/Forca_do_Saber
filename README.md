@@ -54,7 +54,7 @@ Para rodar o jogo, você precisará de:
 - **Desenvolvedores**:
   - Matheus William
   - [Bruno Henrique](https://github.com/BrunoH4ds)
-  - Isaias Ribeiro
+  - [Isaias Ribeiro](https://github.com/IasPY)
   - Beatriz Gomes
   - Nicolly Oliveira
   - Izabelly Anacleto
