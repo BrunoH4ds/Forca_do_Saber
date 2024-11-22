@@ -1,14 +1,28 @@
 # Forca do Saber
 
+Bem-vindo ao jogo **Forca do Saber**! 
+
 **Forca do Saber** é um jogo educativo que combina o clássico jogo da forca com o aprendizado escolar. Ele permite que os alunos revisem conteúdos aprendidos ao longo do ano por meio de palavras e dicas temáticas, incentivando o conhecimento de forma lúdica e interativa.
 
 ## Funcionalidades
 
-- **Escolha de matéria**: Foco inicial em Português, com possibilidade de expansão para outras disciplinas.
-- **Dicas iniciais e adicionais**: Ajuda os jogadores a decifrarem as palavras relacionadas ao tema.
-- **Pontuação**: Acumule pontos a cada palavra acertada e use dicas ao custo de pontos.
-- **Design Responsivo**: Compatível com diferentes tamanhos de tela.
-- **Música de Fundo**: Torna a experiência de jogo mais imersiva.
+- **Escolha de Matéria**: Foco inicial em Português e Inglês, com possibilidade de expansão para outras disciplinas.
+- **Dicas Iniciais e Adicionais**:
+  - Cada palavra possui uma dica inicial gratuita.
+  - Dica adicional disponível ao custo de 10 pontos.
+- **Pontuação e Progresso**:
+  - Acumule 6 pontos a cada palavra correta.
+  - Complete 6 palavras para finalizar o nível.
+  - Use até 3 pulos para avançar no jogo.
+- **Design Responsivo**: Compatível com diferentes dispositivos.
+- **Música de Fundo**: Torna a experiência mais imersiva.
+
+## Regras do Jogo
+
+1. **Objetivo**: Descubra a palavra secreta antes de esgotar suas tentativas.
+2. **Tentativas**: Você tem 6 chances para acertar cada palavra.
+3. **Pontos Negativos**: 10 pontos são descontados ao comprar dicas.
+4. **Fim de Jogo**: Errar 6 letras resulta em derrota.
 
 ## Estrutura do Projeto
 
@@ -21,13 +35,13 @@
 
 Para rodar o jogo, você precisará de:
 
-- Navegador web atualizado (Google Chrome, Firefox, etc.)
+- Navegador web atualizado (Google Chrome, Firefox, etc.).
 - Conexão com a internet para carregar recursos externos (ícones e música).
 
 ## Instruções de Uso
 
 1. **Clone o repositório**:
-   ```bash
+      ```bash
    git clone https://github.com/seu-repositorio/forca-do-saber.git
    ```
 2. **Abra o arquivo `index.html`** no navegador para iniciar o jogo.
