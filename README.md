@@ -1,6 +1,6 @@
 # Forca do Saber
 
-Bem-vindo ao jogo **Forca do Saber**! 
+Bem-vindo ao jogo **Forca do Saber**!
 
 **Forca do Saber** é um jogo educativo que combina o clássico jogo da forca com o aprendizado escolar. Ele permite que os alunos revisem conteúdos aprendidos ao longo do ano por meio de palavras e dicas temáticas, incentivando o conhecimento de forma lúdica e interativa.
 
@@ -41,12 +41,12 @@ Para rodar o jogo, você precisará de:
 ## Instruções de Uso
 
 1. **Clone o repositório**:
-      ```bash
-   git clone https://github.com/BrunoH4ds/web_Forca_educacional
+   ```bash
+   git clone https://github.com/BrunoH4ds/Forca_do_Saber
    ```
 2. **Abra o arquivo `index.html`** no navegador para iniciar o jogo.
 3. **Acesse a versão online do jogo**:  
-   [Forca do Saber](https://github.com/BrunoH4ds/web_Forca_educacional)
+   [Forca do Saber](https://github.com/BrunoH4ds/Forca_do_Saber)
 
 ## Créditos
 
