@@ -1,54 +1,68 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // Configurações iniciais
-  localStorage.clear();
+  localStorage.removeItem("estatisticasJogo");
   const skipButton = document.querySelector(".skip");
-  const jogosPorNivel = 6; // Máximo de jogos por nível
+  const jogosPorNivel = 18; // Máximo de jogos por nível
   let delayEmAndamento = false;
   let jogoAtual = 1;
   let pontos = 0;
-  let palavrasRestantes = [...palavras]; // Cópia da lista original
-  let DicaComprada = false;
-  let Pulos = 0;
-  let PalavraCerta = 0;
-  let DicasCompradas = 0;
+  const temaAtual = localStorage.getItem("tema") || "pt"; // Carrega o tema do localStorage
+  let palavrasRestantes = [...palavras[temaAtual]]; // Usa o banco de palavras com base no tema
+  let dicaComprada = false;
+  let pulos = 0;
+  let palavraCerta = 0;
+  let dicasCompradas = 0;
   let palavraSecreta, dicaInicial, dicaCompravel, letrasDescobertas, tentativas;
   let letrasErradas = [];
 
+  // Define o volume inicial para 2%
+  document.getElementById('music').volume = 0.02; 
+
+  // Altera o conteúdo do header com base no tema
+  const headerGame = document.querySelector(".matter h1");
+  if (temaAtual === "pt") {
+    headerGame.textContent = "Português"; // Se o tema for Português
+  } else if (temaAtual === "en") {
+    headerGame.textContent = "Inglês"; // Se o tema for Inglês
+  }
+
   // Imagens do boneco na forca
   const imagensForca = [
-    "src/img/forca.png", // Imagem inicial (sem erros)
-    "src/img/forca1.png", // 1 erro
-    "src/img/forca2.png", // 2 erros
-    "src/img/forca3.png", // 3 erros
-    "src/img/forca4.png", // 4 erros
-    "src/img/forca5.png", // 5 erros
-    "src/img/forca6.png", // 6 erros
+    "src/img/forca/forca.png", // Imagem inicial (sem erros)
+    "src/img/forca/forca1.png", // 1 erro
+    "src/img/forca/forca2.png", // 2 erros
+    "src/img/forca/forca3.png", // 3 erros
+    "src/img/forca/forca4.png", // 4 erros
+    "src/img/forca/forca5.png", // 5 erros
+    "src/img/forca/forca6.png", // 6 erros
   ];
 
   // Seleção de palavra aleatória
   function selecionarPalavraAleatoria() {
     if (palavrasRestantes.length === 0) {
-      palavrasRestantes = [...palavras]; // Reinicia a lista se esgotada
+      palavrasRestantes = [...palavras[temaAtual]]; // Reinicia a lista se esgotada
     }
-
+  
     const indiceAleatorio = Math.floor(Math.random() * palavrasRestantes.length);
     const palavraAleatoria = palavrasRestantes.splice(indiceAleatorio, 1)[0]; // Remove a palavra escolhida
     palavraSecreta = palavraAleatoria.palavra.toLowerCase();
     dicaInicial = palavraAleatoria.dicaInicial;
     dicaCompravel = palavraAleatoria.dicaCompravel;
-    letrasDescobertas = Array(palavraSecreta.length).fill("_");
+  
+    // Gera o array letrasDescobertas, mostrando espaços visíveis
+    letrasDescobertas = Array.from(palavraSecreta, char => (char === " " ? "-" : "_"));
+  
     tentativas = 6;
-    DicaComprada = false; // Reinicia a condição de dica
+    dicaComprada = false; // Reinicia a condição de dica
     atualizarImagemForca(); // Reseta a imagem da forca
-  }
+  }  
 
   // Atualizar interface do jogo
   function atualizarInterface() {
-    document.querySelector("#Dica_init").textContent = `Dica inicial: ${dicaInicial}`;
+    document.querySelector("#Dica_init").textContent = dicaInicial;
     document.querySelector("#Dica_init + h1").textContent = letrasDescobertas.join(" ");
     document.querySelector("#pontuacao").textContent = ` ${String(pontos).padStart(3, "0")}`;
     document.querySelector("#progressoFase").textContent = `${jogoAtual}/${jogosPorNivel}`;
-    skipButton.innerHTML = `<i class="bi bi-skip-end"></i> Pular ${Pulos}/3`;
+    skipButton.innerHTML = `<i class="bi bi-skip-end"></i> Pular ${pulos}/3`;
   }
 
   // Atualizar a imagem da forca com base no número de tentativas
@@ -60,9 +74,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function salvarEstatisticas() {
     const estatisticas = {
-      palavrasCertas: PalavraCerta,
-      dicasCompradas: DicasCompradas ? 1 : 0, // Pode incrementar em cada compra se houver mais de uma dica
-      pulos: Pulos,
+      palavrasCertas: palavraCerta,
+      dicasCompradas: dicasCompradas ? 1 : 0, // Pode incrementar em cada compra se houver mais de uma dica
+      pulos: pulos,
       pontos: pontos,
     };
     localStorage.setItem("estatisticasJogo", JSON.stringify(estatisticas));
@@ -70,7 +84,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Limpar mensagens no container
   function limparMensagens() {
-    document.querySelector(".container .content p").textContent = ""; // motivo do bug da msg nao ser exibida
+    document.querySelector(".container .content p").textContent = ""; // Motivo do bug da mensagem não ser exibida
   }
 
   // Exibir mensagem no container
@@ -87,8 +101,8 @@ document.addEventListener("DOMContentLoaded", () => {
   // Verificar vitória
   function verificarVitoria() {
     if (!letrasDescobertas.includes("_")) {
-      pontos += 6; // Pontos por completar a palavra
-      PalavraCerta++;
+      pontos += 8; // Pontos por completar a palavra
+      palavraCerta++;
       if (jogoAtual < jogosPorNivel) {
         jogoAtual++;
 
@@ -118,7 +132,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (tentativas <= 0 && delayEmAndamento) {
       return; // Não permite mais tentativas enquanto o delay está em andamento
     }
-
+    
     const letra = event.target.value.toLowerCase();
     event.target.value = ""; // Limpa o campo de entrada
 
@@ -150,18 +164,18 @@ document.addEventListener("DOMContentLoaded", () => {
       atualizarImagemForca(); // Atualiza a imagem da forca
       
       // Seleciona o campo de entrada
-      const letraInput = document.querySelector(".entry");
+      const camp_message = document.querySelector(".message");
 
       // Aplica a classe "errado" para mudar a cor para vermelho
-      letraInput.classList.add("errado");
+      camp_message.classList.add("errado");
 
       // Aplica a animação "shake"
-      letraInput.classList.add("shake");
+      camp_message.classList.add("shake");
 
       // Remove a classe "errado" e a animação "shake" após 1 segundo
       setTimeout(() => {
-          letraInput.classList.remove("errado");
-          letraInput.classList.remove("shake");
+        camp_message.classList.remove("errado");
+        camp_message.classList.remove("shake");
       }, 1000); // Tempo de duração para a animação e reset da cor
     }
 
@@ -180,11 +194,11 @@ document.addEventListener("DOMContentLoaded", () => {
   
   // Evento para comprar dica
   document.querySelector(".tip").addEventListener("click", () => {
-    if (!DicaComprada) {
+    if (!dicaComprada) {
       if (pontos >= 10) {
-        DicaComprada = true;
+        dicaComprada = true;
         pontos -= 10;
-        DicasCompradas++;
+        dicasCompradas++;
         exibirMensagem(`Dica Comprada: ${dicaCompravel}`);
         atualizarInterface();
       } else {
@@ -195,9 +209,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Evento de pular palavra
   skipButton.addEventListener("click", () => {
-    if (Pulos < 3) {
-      Pulos++;
-      avancarPalavra();
+    // Verifica se ainda há jogos restantes e se o limite de pulos não foi alcançado
+    if (jogoAtual < jogosPorNivel && pulos < 3) {
+      pulos++; // Incrementa o número de pulos
+      jogoAtual++; // Avança o jogo
+      avancarPalavra(); // Avança para a próxima palavra
+    }
+    // Bloqueia o botão se atingir o máximo de jogos ou o limite de pulos
+    if (jogoAtual >= jogosPorNivel || pulos >= 3) {
+      skipButton.style.filter = "grayscale(1)"; // Aplica o filtro cinza
+      skipButton.disabled = true; // Desativa o botão
+      skipButton.classList.remove("upscale");
+      skipButton.classList.add("shake");
     }
   });
 
@@ -205,5 +228,3 @@ document.addEventListener("DOMContentLoaded", () => {
   selecionarPalavraAleatoria();
   atualizarInterface();
 });
-
-
