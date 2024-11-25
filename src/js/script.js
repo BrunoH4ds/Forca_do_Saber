@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
   localStorage.removeItem("estatisticasJogo");
   const skipButton = document.querySelector(".skip");
-  const jogosPorNivel = 18; // Máximo de jogos por nível
+  const jogosPorNivel = 10; // Máximo de jogos por nível
   let delayEmAndamento = false;
   let jogoAtual = 1;
   let pontos = 0;
